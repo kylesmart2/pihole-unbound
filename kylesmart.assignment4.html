@@ -1,0 +1,79 @@
+<!--					 Kyle Smart									||
+||					Scripting Languages								||
+||						  3/15/19									||
+||		This program creates a dimensional array and sorts it 		||
+||		using my bubbleSort function. It outputs the array before	||
+|| 		and after the sort has occurred.							-->
+
+<!DOCTYPE html>
+
+<html> 
+	<head>
+		<Title> Sorting multidimensional arrays </Title>
+		<p> Sorting a two dimensional array </p>
+	</head>
+
+	<body>
+
+		<!--javascript to create a two dimensional array and sort using bubblesort
+		-->
+		<script type ="text/javascript">
+			
+			var array = new Array(2);
+			//two dimensional array
+			array = [[26, 6, 38, 4, 89, 2, 83, 3, 97, 10],[8, 24, 9, 41, 81, 1, 90, 87, 5, 54]]; 
+				
+			outputArray("The unsorted two-dimensional array: ", array);
+
+			bubbleSort(array);	//calling bubble sort function
+
+			outputArray("The sorted array is: ", array);	//calling output function
+
+
+			function outputArray(header, theArray)
+			{
+				document.writeln(header + theArray.join(" ") + "<br />");
+			}
+
+			function bubbleSort(array)
+			{	//two dimensional array bubblesort
+
+			   var swap;     
+			   var temp;     
+
+			   do
+			   {
+			      swap = false;
+			      //nested for loops to navigate through two dimensional array
+			      for (var i = 0; i < array.length; i++)
+			      	for (var j = 0; j < array[1].length; j++)
+			      
+			      		//comparing last position in first dimension to first digit in last dimension
+			      		if ((i == 0) && (j == array[1].length - 1))
+					    {
+
+					    	if (array[i][j] > array[i+1][0])
+					    	{	//swapping function
+					    		temp = array[i][j];
+					       		array[i][j] = array[i+1][0];
+					       		array[i+1][0] = temp;
+					       		swap = true;
+					    	}
+					    }
+			         	else if (array[i][j] > array[i][j+1])
+			        	 {	//swapping function
+			        	 	temp = array[i][j];
+			           		array[i][j] = array[i][j+1];
+			            	array[i][j+1] = temp;
+			            	swap = true;
+			         	}   	
+			      
+			   } while (swap);
+			}
+
+
+		</script>
+
+
+	</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title>Welcome to Kyle Smart's Homepage!</title>
+	</head>
+
+	<body>
+		<h1> Welcome to my Homepage </h1>
+
+		<img src="portrait.jpg"> 
+
+  		<ul>
+   			<li> My name is Kyle Smart.</li>
+   		 			<!-- Link to computer science webpage -->
+  			<li> I major in <a href="http://math0.wvstateu.edu/math/">Computer Science</a> at West Virginia State University. </li>
+  			<li> Some of the hobbies I enjoy are woodworking, working on cars, and doing anything computer related. </li>
+  			<li> My email address is: <a href="mailto:ksmart@wvstateu.edu?Subject=I found your homepage">ksmart@wvstateu.edu </a> </li>
+  		</ul>
+
+  		<!-- Table of classes -->
+  		<table border = "1" >
+			<caption>College Classes Attended So Far</caption>
+		<!--Header of column names -->
+		<thead>
+			<tr>
+				<!--colspan merges number of columns specified-->
+				<th colspan = "2"> 
+				   Year/Semester</th>
+				<th>Course #</th>
+				<th>Name</th>
+				<th>Credits</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<!--rowspan merges number of rows specified-->
+				<!--align determines alignment in cell-->
+				<!--th is table header and td is table data-->
+				<th rowspan = "4" valign = "middle">
+				   2019</th>
+				<th rowspan = "3">
+					Spring</th>
+				<td>CS309</td>
+				<td>Software Engineering</td>
+				<td>3</td>
+			</tr>
+			<tr>
+				<td>MATH222</td>
+				<td>Statistics</td>
+				<td>3</td>
+			</tr>
+			<tr>
+				<td>CS336</td>
+				<td>Scripting Languages</td>
+				<td>3</td>
+			</tr>
+			<tr>
+				<th rowspan = "1">
+					Fall</th>
+				<td>       </td>
+				<td>          </td>
+				<td> </td>
+			</tr>
+			<tr>
+				<th rowspan = "7" valign = "middle">
+				   2018</th>
+				<th rowspan = "4">
+					Spring</th>
+				<td>BIOL120</td>
+				<td>Fundamentals of Biology & Lab</td>
+				<td>4</td>
+			</tr>
+			<tr>
+				<td>CS250</td>
+				<td>Data Structures & Algorithms</td>
+				<td>3</td>
+			</tr>
+			<tr>
+				<td>MATH206</td>
+				<td>Calculus 1</td>
+				<td>4</td>
+			</tr>
+			<tr>
+				<td>POSC210</td>
+				<td>International Relations</td>
+				<td>3</td>
+			</tr>
+			<tr>
+				<th rowspan = "3">
+					Fall</th>
+				<td>MATH207</td>
+				<td>Calculus 2</td>
+				<td>4</td>
+			</tr>
+			<tr>
+				<td>CS408</td>
+				<td>Senior Seminar</td>
+				<td>2</td>
+			</tr>
+			<tr>
+				<td>CS425</td>
+				<td>Compiler Design</td>
+				<td>3</td>
+			</tr>
+			<tr>
+				<th rowspan = "8" valign = "middle">
+				   2017</th>
+				<th rowspan = "4">
+					Spring</th>
+				<td>ART100</td>
+				<td>Art Appreciation</td>
+				<td>3</td>
+			</tr>
+			<tr>
+				<td>BIOL101</td>
+				<td>Principles of Biology</td>
+				<td>4</td>
+			</tr>
+			<tr>
+				<td>CS102</td>
+				<td>The Object-Oriented Paradigm</td>
+				<td>3</td>
+			</tr>
+			<tr>
+				<td>MUS104</td>
+				<td>American Music - A Panorama</td>
+				<td>3</td>
+			</tr>
+			<tr>
+				<th rowspan = "4">
+					Fall</th>
+				<td>CS240</td>
+				<td>Data Comm & Networking</td>
+				<td>3</td>
+			</tr>
+			<tr>
+				<td>CS310</td>
+				<td>Computer Arch & Assembly Lang</td>
+				<td>3</td>
+			</tr>
+			<tr>
+				<td>MATH121</td>
+				<td>Pre-Calculus</td>
+				<td>4</td>
+			</tr>
+			<tr>
+				<td>HHP157</td>
+				<td>Healthy Living</td>
+				<td>2</td>
+			</tr>
+			<tr>
+				<th rowspan = "6" valign = "middle">
+				   2016</th>
+				<th rowspan = "1">
+					Spring</th>
+				<td>     </td>
+				<td>                </td>
+				<td> </td>
+			</tr>
+			<tr>
+				<th rowspan = "5">
+					Fall</th>
+				<td>CS101</td>
+				<td>Programming Fundametals</td>
+				<td>3</td>
+			</tr>
+			<tr>
+				<td>CS230</td>
+				<td>Database Management Systems</td>
+				<td>3</td>
+			</tr>
+			<tr>
+				<td>HIST208</td>
+				<td>American History - From 1865</td>
+				<td>3</td>
+			</tr>
+			<tr>
+				<td>MATH102</td>
+				<td>Plane Trigonometry</td>
+				<td>3</td>
+			</tr>
+			<tr>
+				<td>MATH205</td>
+				<td>Discrete Mathematics</td>
+				<td>3</td>
+			</tr>
+
+
+
+		<script type = "text/javascript">
+			var grade,
+			score,
+			A=B=C=D=F=0;
+			counter = 1;
+
+			do   
+			{
+				grade = window.prompt("Please enter your test percentage: ", "0");
+
+				score = parseInt( grade )
+				switch (true)	
+				{
+					case (score >= 90):
+						A = A+1;
+						break;
+					case (score >= 80):
+						B = B+1;
+						break;
+					case (score >= 70):
+						C = C+1;
+						break;
+					case (score >= 60):
+						D = D+1;
+						break;
+					case (score < 60):
+						F = F+1;
+						break;
+					default:
+						grade = window.prompt("Please enter a valid percentage: ", "0");
+						score = parseInt( grade );
+
+				}
+
+				counter = counter + 1;
+
+			}
+			
+			while(counter <= 10);
+
+			document.write("<br>Total number of A's: " + A + "<br>Total number of B's: " +
+				B + "<br>Total number of C's: " + C + "<br>Total number of D's: " + D +
+				"<br>Total number of F's: " + F);
+		</script>
+
+
+		
+	</body>
+
+
+
+</html>

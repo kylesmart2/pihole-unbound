@@ -1,0 +1,64 @@
+<!--					 Kyle Smart									||
+||					Scripting Languages								||
+||						  2/14/19									||
+||		This script prompts the user to enter 10 test scores and 	||
+||		displays how many of each									||
+||		letter grade there was. 									||
+|| 																	-->
+
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title>Welcome to Kyle Smart's JavaScript Assignment!</title>
+	</head>
+
+		<script type = "text/javascript">
+		<!--
+			var grade,		//declaring variables
+			score,
+			A=B=C=D=F=0;
+			counter = 1;
+
+			do   
+			{	//prompt user to enter test scores
+				grade = window.prompt("Please enter your test percentage: ", "0");
+
+				score = parseInt( grade )	//converting grade to an integer
+				switch (true)	
+				{
+					case (score >= 90): 	//A if score is 90, but less than 100
+						A = A+1;
+						break;
+					case (score >= 80):		//B if score is 80 to 89
+						B = B+1;
+						break;
+					case (score >= 70):		//C if score is 70 to 79
+						C = C+1;
+						break;
+					case (score >= 60): 	//D if score is 60 to 69
+						D = D+1; 
+						break;
+					case ((score < 60)  && (score >= 0)): 	//F if less than 60; greater than 0
+						F = F+1;
+						break;
+					default: 								//if out of bounds entry is made
+						grade = window.prompt("INVALID VALUE! Please enter a valid percentage (0-100): ", "0");
+						score = parseInt( grade );
+						counter--; 					//decrement counter to account for correct  							  grade
+				}
+
+				counter = counter + 1;			//increment counter
+
+			}
+			
+			while(counter <= 10);
+			//display number of letter grades
+			document.write("<br>Total number of A's: " + A + "<br>Total number of B's: " +
+				B + "<br>Total number of C's: " + C + "<br>Total number of D's: " + D +
+				"<br>Total number of F's: " + F);
+		</script>
+
+		<body></body>
+</html>

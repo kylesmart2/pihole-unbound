@@ -1,0 +1,272 @@
+<!--					 Kyle Smart									||
+||					Scripting Languages								||
+||						  2/20/19									||
+||		This script prompts the user to enter 10 numbers and sorts 	||
+||		the numbers in an array and finds the median of that array.	||
+||																	||
+|| 																	-->
+
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<Title>Recursive functions and arrays</Title>
+		<p>Recursive functions and arrays</p>
+	</head>
+
+	<body>
+			<!-- global variables compared to local variables -->
+<!-- 		<script type = "text/javascript">
+		
+			var x = 1; 
+
+			function start()
+			{
+				var x = 5;
+
+				document.writeln("The local variable x is " + x);
+
+				functionA();
+				functionB();
+				functionA();
+				functionB();
+
+				document.writeln("<br />The start x variable value is " + x 
+					+ " right now. <br />");
+
+			}
+
+				function functionA()
+				{
+					var x = 25;
+					document.writeln("<br />FunctionA local variable x is " + x 
+						+ " right now");
+					x++;
+					document.writeln("<br /> The local variable x is: " + x
+						+ " right now.");
+				}
+				function functionB()
+				{
+
+					document.writeln("<br />FunctionB The global x value is " + x 
+						+ " right now.");
+					x *= 10;
+
+					document.writeln("<br /> The global x value is " + x
+						+ " right now.");
+				}
+
+
+			start();
+
+		</script> -->
+
+<!--// recursive function for factorials -->
+<!-- 		<script language = "javascript">
+			
+
+			document.writeln("<h1>Factorials of </h1>");
+			document.writeln(
+				"<table border = '1' width = '60%'>");
+
+			for (var i = 0; i <= 10; i++)
+			{
+				document.writeln("<tr><td>" + i + "!</td><td>" +
+					factorial(i) + "</td></tr>");
+			}
+
+			function factorial(number)
+			{
+				if (number <= 1)
+					return 1;
+				else
+					return number * factorial(number - 1);
+			}
+
+		</script> 
+ -->
+<!-- 		<script type = "text/javascript">
+			
+			//calling function
+			initializeArrays();
+			
+			//function definition
+			function initializeArrays()
+			{
+				var n1 = new Array(5);
+				var n2 = new Array();
+
+				for (var i = 0; i < n1.length; i++)
+					n1[i] = i;
+				for (i = 0; i < 5; i++)
+					n2[i] = i+5;
+
+				outputArray("Array n1 contains", n1);	//calling function to print
+				outputArray("Array n2 contains", n2);
+			}
+			//print function definition
+			function outputArray(header, theArray)		
+			{
+				document.writeln("<h2>" + header + "</h2>");	//constructing table
+				document.writeln("<table border = 1 width =" +
+					"50%>");
+				document.writeln("<thead><th>Subscript</th>" + "<th>Value</th></thead><tbody>");
+
+				for (var i = 0; i < theArray.length; i++)		//printing to table
+				{
+					document.writeln("<tr><td>" + i + "</td><td>" +
+						theArray[i] + "</td></tr>");
+				}
+
+				document.writeln("</tbody></table>");
+			}
+
+
+		</script> -->
+
+<!-- functions to modify array and not modify array -->
+		<script type = "text/javascript">
+
+			start();
+
+			function start()
+			{
+				var a = [1,2,3,4,5];
+
+				document.writeln("<h2>Effects of passing entire array call-by-reference</h2>");
+
+				outputArray("The values of the original array are: ", a);
+
+				modifyArray(a);
+
+				outputArray("The values of the modified array are: ", a);
+
+				document.writeln("<h2>Effects of passing array" + 
+					" element call-by-value</h2>" + 
+					"a[3] before modifyElement: " + a[3]);
+
+				modifyElement(a[3]);
+
+				document.writeln("<br />a[3] after modifyElement: " + a[3]);
+
+
+			}
+
+			function outputArray(header, theArray)
+			{
+				document.writeln(header + theArray.join(" ") + "<br />");
+			}
+
+			function modifyArray(theArray)
+			{
+				for (var j in theArray)
+					theArray[j] *= 2;
+			}
+
+			function modifyElement(e)
+			{
+				e *= 2;
+				document.writeln("<br />Value in modifyElement: " + e);
+			}
+
+
+		</script>
+
+
+
+
+		<script type = "text/javascript">
+
+			start()
+
+			function start()
+			{
+				var a = [10, 1, 9, 2, 8, 3, 7, 4, 6, 5];
+
+				document.writeln("<h1>Sorting an Array</h1>");
+				outputArray("Data items in original order: ", a);
+				a.sort( compareIntegers);
+				outputArray("Data items in ascending order: ", a);
+
+			}
+
+			function outputArray(header, theArray)
+			{
+				document.writeln("<p>" + header + theArray.join( " ") + "</p>");
+			}
+
+			function compareIntegers(value1, value2)
+			{
+				return parseInt(value1) - parseInt(value2);
+			}
+
+		</script>
+
+
+
+
+
+		<!-- script to define an array, creat search function, and button press function-->
+		<script type = "text/javascript">
+			
+			var a = new Array(100);
+
+
+			//filling array 
+			for (var i = 0; i < a.length; i++)
+				a[i] = 2 * i;
+
+			function buttonPressed()	//called in body to use with form
+			{
+				var searchKey = searchForm.inputVal.value;
+				//Array a is passed to linear search
+				//is a global variable. Normally
+				//be passed to a method for search
+				var element = linearSearch(a, parseInt(searchKey));
+
+				if (element != -1)		//if value exists in the array
+				{
+					searchForm.result.value = "Found value in element";
+				}
+
+				else 					//if value doesn't exist in the array
+				{
+					searchForm.result.value = "Value not found";
+				}
+			}
+
+			function linearSearch( theArray, key)	//array search function
+			{
+				for (var n = 0; n < theArray.length; n++)
+				{
+					if (theArray[n] == key) 	//if value exists in the array
+					{
+						return n;
+					}
+				}
+
+
+				return -1; 						//if value doesn't exist in the array
+			}
+
+		</script>
+
+<!-- 	creating the search form and result form 	-->
+		<form name = "searchForm" action = "">
+			<p>Enter integer search key<br />
+				<input name = "inputVal" type = "text" />
+				<input name = "search" type = "button" value = "Search" 
+					onclick = "buttonPressed()" /><br /></p>
+
+			<p>Result<br />
+				<input name = "result" type = "text" size = "30" /></p>
+		</form>
+
+
+
+
+
+
+
+	</body>
+</html>
