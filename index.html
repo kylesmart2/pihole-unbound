@@ -189,50 +189,8 @@
 
 
 
-		<script type = "text/javascript">
-			var grade,
-			score,
-			A=B=C=D=F=0;
-			counter = 1;
-
-			do   
-			{
-				grade = window.prompt("Please enter your test percentage: ", "0");
-
-				score = parseInt( grade )
-				switch (true)	
-				{
-					case (score >= 90):
-						A = A+1;
-						break;
-					case (score >= 80):
-						B = B+1;
-						break;
-					case (score >= 70):
-						C = C+1;
-						break;
-					case (score >= 60):
-						D = D+1;
-						break;
-					case (score < 60):
-						F = F+1;
-						break;
-					default:
-						grade = window.prompt("Please enter a valid percentage: ", "0");
-						score = parseInt( grade );
-
-				}
-
-				counter = counter + 1;
-
-			}
-			
-			while(counter <= 10);
-
-			document.write("<br>Total number of A's: " + A + "<br>Total number of B's: " +
-				B + "<br>Total number of C's: " + C + "<br>Total number of D's: " + D +
-				"<br>Total number of F's: " + F);
-		</script>
+		
+			</tbody>
 
 
 		
