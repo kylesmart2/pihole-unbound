@@ -109,14 +109,37 @@
 						<h2>Get in touch</h2>
 					</header>
 <!--- edit action to send email --->
-					<form method="post" action="#">
+					<script>
+				        // define the callAPI function that takes a first name and last name as parameters
+				        var callAPI = (name,email,message)=>{
+				            // instantiate a headers object
+				            var myHeaders = new Headers();
+				            // add content type header to object
+				            myHeaders.append("Content-Type", "application/json");
+				            // using built in JSON utility package turn object to string and store in a variable
+				            var raw = JSON.stringify({"name":name,"email":email, "message":message});
+				            // create a JSON object with parameters for API call and store in a variable
+				            var requestOptions = {
+				                method: 'POST',
+				                headers: myHeaders,
+				                body: raw,
+				                redirect: 'follow'
+				            };
+				            // make API call with parameters and use promises to get response
+				            fetch("https://j47yoa6bg9.execute-api.us-east-2.amazonaws.com/websitedev", requestOptions)
+				            .then(response => response.text())
+				            .then(result => alert(JSON.parse(result).body))
+				            .catch(error => console.log('error', error));
+				        }
+				    </script>
+					<form>
 						<div class="row gtr-uniform">
 							<div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Name" /></div>
 							<div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Email" /></div>
 							<div class="col-12"><textarea name="message" id="message" placeholder="Message" rows="4"></textarea></div>
 							<div class="col-12">
 								<ul class="actions special">
-									<li><input type="submit" value="Send Message" class="primary" /></li>
+									<li><input type="button" value="Send Message" class="primary" onclick="callAPI(document.getElementById('name').value,document.getElementById('email').value, document.getElementById('message').value)"/></li>
 								</ul>
 							</div>
 						</div>
