@@ -128,7 +128,7 @@
 				            // make API call with parameters and use promises to get response
 				            fetch("https://j47yoa6bg9.execute-api.us-east-2.amazonaws.com/websitedev", requestOptions)
 				            .then(response => response.text())
-				            .then(result => alert(JSON.parse(result).body))
+				            //.then(result => alert(JSON.parse(result).body))
 					    .then((value) => window.location.href = "https://mrkylesmart.com/thanks.html")
 				            .catch(error => console.log('error', error));
 
