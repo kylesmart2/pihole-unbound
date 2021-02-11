@@ -55,35 +55,7 @@ I have pulled the docker-compose.yml file stuff out of this tutorial and made it
 7. Create docker-compose.yml file:
    nano docker-compose.yml
 
-   Paste below text into file, edit timezone and ServerIP address, control+x, y, enter - to save file
-
-version: '3.3'
-
-
-services:
-  pihole:
-    container_name: pihole
-    image: cbcrowe/pihole-unbound:latest
-    hostname: pihole
-    domainname: pihole.local
-    ports:
-      - 443/tcp
-      - 53/tcp
-      - 53/udp
-      - 80/tcp
-    environment:
-      ServerIP: "IP Address"	#IP address of server
-#      TZ: America/New_York  #your timezone
-#      WEBPASSWORD: WEB_PASS #your password. Optional
-      DNS1: 127.0.0.1#5335 # Hardcoded to our Unbound server
-      DNS2: 127.0.0.1#5335 # Hardcoded to our Unbound server
-      DNSSEC: "true" # Enable DNSSEC
-    network_mode: "host"
-    volumes:
-      - './etc-pihole/:/etc/pihole/'
-      - './etc-dnsmasq.d/:/etc/dnsmasq.d/'
-      #these "volumes" will be placed in the directory from which you are running the docker commands. You can edit them to your preferred directory if you wish
-    restart: unless-stopped
+   Paste the conents of the attached docker-compose.yml file or just download the file and put it on your server. I'd recommend SFTP in terminal or filezilla if you're choosing    to download the file. 
 
 
 8. Run docker-compose up -d
@@ -101,4 +73,4 @@ services:
    Navigate to your server's IP address followed by a colon and then 9000
    i.e. 192.168.1.2:9000
 
-   Enter a password for your adminstrator account, click local after intial sign-in to see your local      container stack. 
+   Enter a password for your adminstrator account, click local after intial sign-in to see your local container stack. 
