@@ -1,0 +1,10 @@
+If you choose to do this project using EC2 on AWS please note that you do not need to worry about the firewall stuff like you would if you are using Linode or possibly another service that I'm not familiar with at this time.
+
+AWS EC2 instances allow you to setup your own VPC's where you can control who accesses your server with ACL's. Doing this allows you to determine if you want the services hosted on your EC2 server to be open to the world or only a select number of users. I recommend looking into the various things you can do with security groups and even ACL's inside of VPC to learn more about it if you have not already done so. 
+
+Using the free tier Amazon Linux 2 would be a good one to choose to run Pihole-Unbound as it requires little power to be ran if it isn't open to the entire internet. After your 12 months of free tier has expired, I believe it costs $5 a month to run it constantly as they charge by the minute for use. 
+
+Whatever you choose, I hope you at least give AWS a try if you haven't done so already as you do get 12 months of free tier and they offer a lot of stuff that is free tier eligible even beyond the 12 months. 
+
+This is the link to see what you can get with AWS free-tier.
+https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc

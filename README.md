@@ -1,5 +1,5 @@
 # pihole-unbound
-Follow these steps to setup pihole using unbound for a fully recursive DNS server to either run on a Linux computer or server at your house or by using a hosting service online such as Linode.com or Amazon's AWS EC2. 
+Follow these steps to setup pihole using unbound for a fully recursive DNS server to either run on a Linux computer or server at your house or by using a hosting service online such as Linode.com or Amazon's AWS EC2. This will also run on a Raspberry Pi if you do not wish to use a server. 
 
 This tutorial was primarily setup to give you a step-by-step method of setting up Pihole as a recursive DNS for your use on a server hosted outside of your network. I have outlined the steps that you need to follow in order to set this up on a machine in your home network as well. The internal network doesn't require the extra security steps, so it isn't as invovled. 
 
@@ -62,7 +62,7 @@ I have pulled the docker-compose.yml file stuff out of this tutorial and made it
 7. Create docker-compose.yml file:
    nano docker-compose.yml
 
-   Paste the conents of the attached docker-compose.yml file or just download the file and put it on your server. I'd recommend SFTP in terminal or filezilla if you're choosing    to download the file. 
+   Paste the conents of the attached docker-compose.yml file or just download the file and put it on your server. I'd recommend SFTP in terminal or filezilla if you're choosing to download the file. 
 
 
 8. Run docker-compose up -d
