@@ -27,10 +27,15 @@ I have pulled the docker-compose.yml file stuff out of this tutorial and made it
    To                         Action      From
    --                         ------      ----
    22                         ALLOW IN    Your outside IP address or internal if self-hosting
+   
    9000                       ALLOW IN    IP address
+   
    80                         ALLOW IN    IP address
+   
    53                         ALLOW IN    IP address
+   
    22                         ALLOW IN    VPN IP address. Not necessary if self-hosting
+   
 
    To add rules: ufw allow from "IP address" to any port "port number"
    #Put your Ip address in and choose the port numbers from above.
