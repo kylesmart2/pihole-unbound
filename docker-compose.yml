@@ -12,29 +12,25 @@ services:
       - 53/tcp
       - 53/udp
       - 80/tcp
-      #- 67/tcp   if you wish to use Pihole as your DHCP server. Extra steps will be required and are easy to follow
-      # from the pihole website. Please read through their tutorial before running docker-compose.  https://docs.pi-hole.net/docker/DHCP/
+      # - 22/tcp # Uncomment to enable SSH
     environment:
-      ServerIP: "IP Address"	#IP address of server
-#      TZ: America/New_York  #your timezone
-#      WEBPASSWORD: WEB_PASS #your password. Optional
+      ServerIP: ${ServerIP}
+      TZ: ${TZ}
+      WEBPASSWORD: ${WEBPASSWORD}
+      REV_SERVER: ${REV_SERVER}
+      REV_SERVER_TARGET: ${REV_SERVER_TARGET}
+      REV_SERVER_DOMAIN: ${REV_SERVER_DOMAIN}
+      REV_SERVER_CIDR: ${REV_SERVER_CIDR}
       DNS1: 127.0.0.1#5335 # Hardcoded to our Unbound server
       DNS2: 127.0.0.1#5335 # Hardcoded to our Unbound server
       DNSSEC: "true" # Enable DNSSEC
-#     The following 4 things are only necessary if you are hosting on your private network and want pihole 
-#     to operate as your DNS server using hostnames rather than IP addresses(conditional formatting). 
-#      REV_SERVER: ${REV_SERVER}
-#      REV_SERVER_TARGET: ${REV_SERVER_TARGET}
-#      REV_SERVER_DOMAIN: ${REV_SERVER_DOMAIN}
-#      REV_SERVER_CIDR: ${REV_SERVER_CIDR}
     network_mode: "host"
     volumes:
       - './etc-pihole/:/etc/pihole/'
       - './etc-dnsmasq.d/:/etc/dnsmasq.d/'
-      #these "volumes" will be placed in the directory from which you are running the docker commands. You can edit them to your preferred directory if you wish
     restart: unless-stopped
 
-
+#****Comment out REV_SERVER bits if you don't want to use as DCHP server******
 # Docker Environment Var  Description
 # ServerIP: <Host's IP>
 #       --net=host mode requires Set to your server's LAN IP, used by web block modes and lighttpd bind address
