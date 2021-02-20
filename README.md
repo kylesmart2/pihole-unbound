@@ -6,7 +6,7 @@ This tutorial was primarily setup to give you a step-by-step method of setting u
 This is using UFW as the firewall, but there are other firewalls that can be used on Linux if you choose to use another one. There are plenty of choices, I just chose this one as it was easy and it also came pre-installed on my Debian 10 instance on Linode. 
 
 I have pulled the docker-compose.yml file stuff out of this tutorial and made it a separate file if you wish to use it instead. I found the file myself anyway courtesy of cbcrowe who made the pihole-unbound docker container to make it an easy one step setup to make pihole your fully recursive DNS server. 
-
+# If installing on Raspberry Pi, follow this link to install docker:  https://docs.docker.com/engine/install/debian/#install-using-the-convenience-script
 
 # All of the iptables and ufw firewall settings are only required if you are hosting this server outside of your local network. If you're hosting the server inside your network, please only follow steps 3, 6, 7, 8, 9 (this last step is optional)
 
