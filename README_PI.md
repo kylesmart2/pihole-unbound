@@ -31,7 +31,7 @@ After than you can click local again and you will have the full portainer menu
 11. Click on the Containers tab.
 12. Find your pihole container and click the >_ symbol; this will take you to the console.
 13. Click connect.
-14. Once connected, type this command followed by a space and then your password (<password> is just a placeholder. Enter your actual password):
+14. Once connected, type this command followed by a space and then your password:
     pihole -a -p <password>
 15. Open a new tab on your browser and enter your pi's ip address. (I.e. http://192.168.1.4/admin)
 16. Login with the password you just created.
