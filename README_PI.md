@@ -29,7 +29,7 @@ After than you can click local again and you will have the full portainer menu
 9. Click Deploy the stack. This will take a few minutes depending on your intenet connection.
 10. Once it is finshed it will let you know.
 11. Click on the Containers tab.
-12. Find your pihole container and click the >_ symbol; this will take you to the console.
+12. Find your pihole container and click the >_ symbol; this will take you to the console. 
 13. Click connect.
 14. Once connected, type this command followed by a space and then your password:
     pihole -a -p <password>
