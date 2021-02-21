@@ -2,9 +2,9 @@
 
 Just follow these simple commands to install docker. (from dockers website: )
 
-curl -fsSL https://get.docker.com -o get-docker.sh
-sudo sh get-docker.sh
-sudo usermod -aG docker <your-user>     #make sure you remove <your-user> and put your username in place i.e. pi
+curl -fsSL https://get.docker.com -o get-docker.sh \n
+sudo sh get-docker.sh \n
+sudo usermod -aG docker <your-user>     #make sure you remove <your-user> and put your username in place i.e. pi \n
 sudo reboot
   
 # Install Portainer
