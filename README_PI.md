@@ -38,7 +38,7 @@ After than you can click local again and you will have the full portainer menu
 17. If you wish to get hostname's for your devices from your router, you need to go to the Settings
 18. Click the DNS tab and scroll down to the very bottom where you will find Use Conditional Formatting
 19. Check the box and enter your networks CIDR notation (i.e. 192.168.1.0/24) and then your routers IP address (i.e. 192.168.1.1) then click save.
-20. Congratulations, you now have Pi-hole running as a resursive DNS server on your raspberry pi.
+20. Congratulations, you now have Pi-hole running as a resursive DNS server on your raspberry pi. Now you just need to add your pi's ip address in your routers setup to the DNS servers to be handed out to your devices. 
 
 # To update pihole when it says at the bottom of the webpage that an update is available, just open Portainer in a browser window and click stacks.
 
