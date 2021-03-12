@@ -73,9 +73,9 @@ I have pulled the docker-compose.yml file stuff out of this tutorial and made it
    After logged in pihole container:
    pihole -a -p "enter your password without quotes"(hit enter)
 
-9. Add a Portainer container as it is fun to play with as well. 
+9. Add a Portainer container. It makes it super easy to update your containers if you setup the docker-compose.yml file as a stack using portainer. Must use version 2.1 
    (Copy entire command and paste into terminal)
-   docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer:latest
+   docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
 
    Navigate to your server's IP address followed by a colon and then 9000
    i.e. 192.168.1.2:9000
