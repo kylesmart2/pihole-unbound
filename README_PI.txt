@@ -27,7 +27,7 @@ After than you can click local again and you will have the full portainer menu
 7. Pihole best performs using wired ethernet, if you are using wireless, make sure you change eth0 to wlan0
 8. You can enable access control, but if you're new or the only one controling it, you can just turn it off.
 9. Click Deploy the stack. This will take a few minutes depending on your intenet connection.
-10. Once it is finshed it will let you know.
+10. Once it is finished, it will let you know.
 11. Click on the Containers tab.
 12. Find your pihole container and click the >_ symbol; this will take you to the console. 
 13. Click connect.
@@ -40,7 +40,7 @@ After than you can click local again and you will have the full portainer menu
 19. Check the box and enter your networks CIDR notation (i.e. 192.168.1.0/24) and then your routers IP address (i.e. 192.168.1.1) then click save.
 20. Congratulations, you now have Pi-hole running as a resursive DNS server on your raspberry pi. Now you just need to add your pi's ip address in your routers setup to the DNS servers to be handed out to your devices. 
 
-# To update pihole when it says at the bottom of the webpage that an update is available, just open Portainer in a browser window and click stacks.
+# To update pihole when it says at the bottom of the webpage that an update is available, just open Portainer in a browser window.
 
 1. Click on images and enter pihole/pihole:latest in the image search.
 2. Click pull the image.
