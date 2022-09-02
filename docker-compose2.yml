@@ -1,7 +1,7 @@
 # if you want separate pihole and unbound docker containers since the combo doesn't update pihole as often as pihole updates their own container
 # you can build a new stack using portainer with this as well
 
-version: '2.1'
+version: '3'
 
 volumes:
   pihole:
@@ -10,6 +10,7 @@ volumes:
 services:
   pihole:
     image: pihole/pihole:latest
+    hostname: pihole.home
     container_name: pihole
     privileged: true
     volumes:
@@ -19,14 +20,22 @@ services:
       - '127.0.0.1'
     network_mode: host
     environment:
-      - 'ServerIP=${IP ADD}'
-      - 'TZ=America/New_York'
-      - 'DNS1=127.0.0.1#5053'
-      - 'DNS2=127.0.0.1#5053'
-      - 'INTERFACE=eth0'
+      - 'ServerIP=$YOURSERVERIP'
+      - 'TZ=America/New_York' #or your timezone https://gist.github.com/Skipants/788819
+      - 'DNS1=127.0.0.1#53' #if you find it isn't resolving DNS queries, find the unbound IP
+      - 'DNS2=127.0.0.1#53' #address in portainer or through terminal and make it your unbound
+      - 'INTERFACE=eth0'    #containers IP address. I.E. 172.19.0.2 rather than 127.0.0.1
       - 'DNSMASQ_LISTENING=eth0'
+    restart: unless-stopped
   unbound:
     image: klutchell/unbound
     container_name: unbound
     ports:
       - '5053:5053/udp'
+    restart: unless-stopped
+
+    #to find info about container through terminal like IP address and things,
+    #type docker inspect $CONTAINER_NAME where $CONTAINER_NAME is the name of the 
+    #container you wish to inspect.
+
+
