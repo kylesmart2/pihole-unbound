@@ -99,6 +99,7 @@ I have pulled the docker-compose.yml file stuff out of this tutorial and made it
     an update available, ssh into your server, or pull up the server's terminal and enter these commands:
 
     cd pihole
+    
     docker compose pull
 
     Once the download has finised, simply run:
