@@ -59,7 +59,17 @@ I have pulled the docker-compose.yml file stuff out of this tutorial and made it
 
 6. Install docker-compose, follow online instructions
 
-7. Create docker-compose.yml file:
+7. Create docker-compose.yml file, or clone this repository:
+   #if cloning
+   mkdir pihole
+   cd pihole
+   git clone https://github.com/kylesmart2/pihole-unbound.git
+   #determine which compose file you are using, if you want to use docker-compose2.yml, rename docker-compose.yml to 
+   #unused_docker-compose.yml and rename docker-compose2.yml to docker-compose.yml
+
+   #if creating your own docker-compose file and pasting in the contents
+   mkdir pihole
+   cd pihole
    nano docker-compose.yml
 
    Paste the contents of the attached docker-compose.yml file or just download the file and put it on your server. I'd recommend SFTP in terminal or filezilla if you're choosing to download the file and transfer 
@@ -83,3 +93,16 @@ I have pulled the docker-compose.yml file stuff out of this tutorial and made it
    i.e. 192.168.1.2:9000
 
    Enter a password for your adminstrator account, click local after intial sign-in to see your local container stack. 
+
+
+10. Periodically check your Pi-hole admin page at the bottom to check to see if there is an update available. When there is
+    an update available, ssh into your server, or pull up the server's terminal and enter these commands:
+
+    cd pihole
+    docker compose pull
+
+    Once the download has finised, simply run:
+    docker compose up -d
+
+    If the output of that command shows Running 2/1 or Running 2/0, it didn't pull a new version of one or one may not have been available, or neither had an update.
+
