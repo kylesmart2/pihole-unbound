@@ -1,11 +1,11 @@
 # pihole-unbound
 Follow these steps to setup pihole using unbound for a fully recursive DNS server to either run on a Linux computer or server at your house or by using a hosting service online such as Linode.com or Amazon's AWS EC2. This will also run on a Raspberry Pi if you do not wish to use a server. 
 
-This tutorial was primarily setup to give you a step-by-step method of setting up Pihole as a recursive DNS for your use on a server hosted outside of your network. I have outlined the steps that you need to follow in order to set this up on a machine in your home network as well. The internal network doesn't require the extra security steps, so it isn't as invovled. 
+This tutorial is a step-by-step method of setting up Pihole as a recursive DNS for your use on a server hosted outside of your network or inside your network. I have outlined the steps that you need to follow in order to set this up on a machine in your home network as well. The internal network doesn't require the extra security steps, so it isn't as invovled. 
 
 This is using UFW as the firewall, but there are other firewalls that can be used on Linux if you choose to use another one. There are plenty of choices, I just chose this one as it was easy and it also came pre-installed on my Debian 10 instance on Linode. 
 
-I have pulled the docker-compose.yml file stuff out of this tutorial and made it a separate file if you wish to use it instead. I found the file myself anyway courtesy of cbcrowe who made the pihole-unbound docker container to make it an easy one step setup to make pihole your fully recursive DNS server. 
+I have pulled the docker-compose.yml file stuff out of this tutorial and made it a separate file if you wish to use it to make pihole your fully recursive DNS server. 
 # If installing on Raspberry Pi, follow this link to install docker:  https://docs.docker.com/engine/install/debian/#install-using-the-convenience-script
 
 # All of the iptables and ufw firewall settings are only required if you are hosting this server outside of your local network. If you're hosting the server inside your network, please only follow steps 3, 6, 7, 8, 9 (this last step is optional)
