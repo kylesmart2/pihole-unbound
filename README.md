@@ -64,8 +64,8 @@ I have pulled the docker-compose.yml file stuff out of this tutorial and made it
    mkdir pihole
    cd pihole
    git clone https://github.com/kylesmart2/pihole-unbound.git
-   #determine which compose file you are using, if you want to use docker-compose2.yml, rename docker-compose.yml to 
-   #unused_docker-compose.yml and rename docker-compose2.yml to docker-compose.yml
+   #determine which compose file you are using, if you want to use cbcrowe_docker-compose.yml, rename docker-compose.yml to 
+   #unused_docker-compose.yml and rename cbcrowe_docker-compose.yml to docker-compose.yml
 
    #if creating your own docker-compose file and pasting in the contents
    mkdir pihole

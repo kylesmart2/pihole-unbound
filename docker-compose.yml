@@ -1,49 +1,51 @@
-version: '3.3'
+# if you want separate pihole and unbound docker containers since the combo doesn't update pihole as often as pihole updates their own container
+# you can build a new stack using portainer with this as well
 
+version: '3'
+
+volumes:
+  pihole:
+  dnsmasq:
 
 services:
   pihole:
+    image: pihole/pihole:latest
+    hostname: pihole.home
     container_name: pihole
-    image: cbcrowe/pihole-unbound:latest
-    hostname: pihole
-    domainname: pihole.local
-    ports:
-      - 443/tcp
-      - 53/tcp
-      - 53/udp
-      - 80/tcp
-      # - 22/tcp # Uncomment to enable SSH
-    environment:
-      ServerIP: ${ServerIP}
-      TZ: ${TZ}
-      WEBPASSWORD: ${WEBPASSWORD}
-      REV_SERVER: ${REV_SERVER}
-      REV_SERVER_TARGET: ${REV_SERVER_TARGET}
-      REV_SERVER_DOMAIN: ${REV_SERVER_DOMAIN}
-      REV_SERVER_CIDR: ${REV_SERVER_CIDR}
-      DNS1: 127.0.0.1#5335 # Hardcoded to our Unbound server
-      DNS2: 127.0.0.1#5335 # Hardcoded to our Unbound server
-      DNSSEC: "true" # Enable DNSSEC
-    network_mode: "host"
+    privileged: true
     volumes:
-      - './etc-pihole/:/etc/pihole/'
-      - './etc-dnsmasq.d/:/etc/dnsmasq.d/'
+      - 'pihole:/etc/pihole'
+      - 'dnsmasq:/etc/dnsmasq.d'
+    dns:
+      - '127.0.0.1'
+    network_mode: host
+    environment:
+      - 'ServerIP=$YOURSERVERIP'
+      - 'TZ=$TIMEZONE'   #or your timezone https://gist.github.com/Skipants/788819
+      - 'DNS1=127.0.0.1#5053'  #if you find it isn't resolving DNS queries, find the unbound IP
+      - 'DNS2=127.0.0.1#5053'  #address in portainer or through terminal and make it your unbound
+      - 'INTERFACE=eth0'       #containers IP address. I.E. 172.19.0.2 rather than 127.0.0.1
+      - 'DNSMASQ_LISTENING=eth0'
+    restart: unless-stopped
+  unbound:
+    image: klutchell/unbound
+    container_name: unbound
+    ports:
+      - '5053:5053/udp'
     restart: unless-stopped
 
-#****Comment out REV_SERVER bits if you don't want to use as DCHP server******
-# Docker Environment Var  Description
-# ServerIP: <Host's IP>
-#       --net=host mode requires Set to your server's LAN IP, used by web block modes and lighttpd bind address
-# TZ: <Timezone>
-#       Set your timezone to make sure logs rotate at local midnight instead of at UTC midnight.
-#       Timezones are found in the Docker documentation if you aren't sure of the proper format.
-# WEBPASSWORD: <Admin password>
-#       http://pi.hole/admin password. Run docker logs pihole | grep random to find your random pass.
-# REV_SERVER: <"true"|"false">
-#       Enable DNS conditional forwarding for device name resolution
-# REV_SERVER_DOMAIN: <Network Domain>
-#       If conditional forwarding is enabled, set the domain of the local network router
-# REV_SERVER_TARGET: <Router's IP>
-#       If conditional forwarding is enabled, set the IP of the local network router
-# REV_SERVER_CIDR: <Reverse DNS>
-#       If conditional forwarding is enabled, set the reverse DNS zone (e.g. 192.168.0.0/24)
+# test that your unbound container is working properly by opening your ssh terminal
+# for the pi or server that you are running this on:
+#   dig google.com -p 5053 @127.0.0.1 
+# you may also change the @ ip address to the physical ip of the server.
+# in the evnt that it times out, follow instructions from above ^
+
+
+#to find info about container through terminal like IP address and things,
+#type docker inspect $CONTAINER_NAME where $CONTAINER_NAME is the name of the 
+#container you wish to inspect.
+
+# The $ symbol reflects a wildcard. You can use that wildcard if you wish and just add them as
+# your environment variables if you wish. Some just like to change the info right on the compose
+# so that you don't have to worry about missing the environment variable when you deploy the containers
+# i.e. TIMEZONE as the variable name and America/New_York as the value. 

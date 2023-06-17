@@ -1,0 +1,49 @@
+version: '3.3'
+
+
+services:
+  pihole:
+    container_name: pihole
+    image: cbcrowe/pihole-unbound:latest
+    hostname: pihole
+    domainname: pihole.local
+    ports:
+      - 443/tcp
+      - 53/tcp
+      - 53/udp
+      - 80/tcp
+      # - 22/tcp # Uncomment to enable SSH
+    environment:
+      ServerIP: ${ServerIP}
+      TZ: ${TZ}
+      WEBPASSWORD: ${WEBPASSWORD}
+      REV_SERVER: ${REV_SERVER}
+      REV_SERVER_TARGET: ${REV_SERVER_TARGET}
+      REV_SERVER_DOMAIN: ${REV_SERVER_DOMAIN}
+      REV_SERVER_CIDR: ${REV_SERVER_CIDR}
+      DNS1: 127.0.0.1#5335 # Hardcoded to our Unbound server
+      DNS2: 127.0.0.1#5335 # Hardcoded to our Unbound server
+      DNSSEC: "true" # Enable DNSSEC
+    network_mode: "host"
+    volumes:
+      - './etc-pihole/:/etc/pihole/'
+      - './etc-dnsmasq.d/:/etc/dnsmasq.d/'
+    restart: unless-stopped
+
+#****Comment out REV_SERVER bits if you don't want to use as DCHP server******
+# Docker Environment Var  Description
+# ServerIP: <Host's IP>
+#       --net=host mode requires Set to your server's LAN IP, used by web block modes and lighttpd bind address
+# TZ: <Timezone>
+#       Set your timezone to make sure logs rotate at local midnight instead of at UTC midnight.
+#       Timezones are found in the Docker documentation if you aren't sure of the proper format.
+# WEBPASSWORD: <Admin password>
+#       http://pi.hole/admin password. Run docker logs pihole | grep random to find your random pass.
+# REV_SERVER: <"true"|"false">
+#       Enable DNS conditional forwarding for device name resolution
+# REV_SERVER_DOMAIN: <Network Domain>
+#       If conditional forwarding is enabled, set the domain of the local network router
+# REV_SERVER_TARGET: <Router's IP>
+#       If conditional forwarding is enabled, set the IP of the local network router
+# REV_SERVER_CIDR: <Reverse DNS>
+#       If conditional forwarding is enabled, set the reverse DNS zone (e.g. 192.168.0.0/24)
