@@ -98,7 +98,7 @@ I have pulled the docker-compose.yml file stuff out of this tutorial and made it
 10. Periodically check your Pi-hole admin page at the bottom to check to see if there is an update available. When there is
     an update available, ssh into your server, or pull up the server's terminal and enter these commands:
 
-    cd pihole
+    cd pihole                                                                                                                    
     docker compose pull
 
     Once the download has finised, simply run:
