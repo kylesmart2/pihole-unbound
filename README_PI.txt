@@ -22,7 +22,7 @@ After that you can click local again and you will have the full portainer menu
 1. On the left hand side click Stacks
 2. Click Add stack
 3. Name your stack. i.e pihole
-4. Paste the docker-compose2.yml file contents into web editor.
+4. Paste the docker-compose.yml file contents into web editor.
 5. Make sure you change the Server IP to your Raspberry Pi's ip address
 6. Change the timezone if necessary. https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List
 7. Pihole best performs using wired ethernet, if you are using wireless, make sure you change eth0 to wlan0
