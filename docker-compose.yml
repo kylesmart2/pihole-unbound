@@ -10,7 +10,7 @@ volumes:
 services:
   pihole:
     image: pihole/pihole:latest
-    hostname: pihole.home
+    hostname: pihole.home    #change to match your hostnaming scheme
     container_name: pihole
     privileged: true
     volumes:
@@ -20,15 +20,15 @@ services:
       - '127.0.0.1'
     network_mode: host
     environment:
-      - 'ServerIP=$YOURSERVERIP'
+      - 'FTLCONF_LOCAL_IPV4=$YOURSERVERIP'
       - 'TZ=$TIMEZONE'   #or your timezone https://gist.github.com/Skipants/788819
-      - 'DNS1=127.0.0.1#5053'  #if you find it isn't resolving DNS queries, find the unbound IP
-      - 'DNS2=127.0.0.1#5053'  #address in portainer or through terminal and make it your unbound
-      - 'INTERFACE=eth0'       #containers IP address. I.E. 172.19.0.2 rather than 127.0.0.1
+      - 'PIHOLE_DNS=127.0.0.1#5053'  #if you find it isn't resolving DNS queries, find the unbound IP
+                                     #address in portainer or through terminal and make it your unbound
+      - 'INTERFACE=eth0'             #containers IP address. I.E. 172.19.0.2 rather than 127.0.0.1
       - 'DNSMASQ_LISTENING=eth0'
     restart: unless-stopped
   unbound:
-    image: klutchell/unbound
+    image: klutchell/unbound:latest
     container_name: unbound
     ports:
       - '5053:5053/udp'
@@ -38,7 +38,7 @@ services:
 # for the pi or server that you are running this on:
 #   dig google.com -p 5053 @127.0.0.1 
 # you may also change the @ ip address to the physical ip of the server.
-# in the evnt that it times out, follow instructions from above ^
+# in the event that it times out, follow instructions from above ^
 
 
 #to find info about container through terminal like IP address and things,
@@ -46,6 +46,6 @@ services:
 #container you wish to inspect.
 
 # The $ symbol reflects a wildcard. You can use that wildcard if you wish and just add them as
-# your environment variables if you wish. Some just like to change the info right on the compose
+# your environment variables. Some just like to change the info right on the compose
 # so that you don't have to worry about missing the environment variable when you deploy the containers
 # i.e. TIMEZONE as the variable name and America/New_York as the value. 
