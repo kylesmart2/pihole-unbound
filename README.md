@@ -11,24 +11,24 @@ I have pulled the docker-compose.yml file stuff out of this tutorial and made it
 # All of the iptables and ufw firewall settings are only required if you are hosting this server outside of your local network. If you're hosting the server inside your network, please only follow steps 3, 6, 7, 8, 9 (this last step is optional)
 
 1. Install iptables-persistent:
-```
-apt install iptables-persistent
-```
+   ```
+   apt install iptables-persistent
+   ```
    Save tables:
    ```
-iptables-save > /etc/iptables/rules.v4
+   iptables-save > /etc/iptables/rules.v4
    ```
 
 2. Edit ufw rules, install if not already and enable 
 
   ```
-ufw enable
+  ufw enable
   ```
    
    Rules:
    root@localhost:~#
    ```
-ufw status verbose
+   ufw status verbose
    ```
    Status: active
    Logging: on (low)
@@ -61,13 +61,13 @@ ufw status verbose
    RETURN     all  --  anywhere             anywhere
 
    iptables commmand: 
-  ```
-iptables -I DOCKER-USER -i "ethernet port"(usually ethh0) ! -s "your IP address" -j DROP
-  ```
+   ```
+   iptables -I DOCKER-USER -i "ethernet port"(usually ethh0) ! -s "your IP address" -j DROP
+   ```
 
    save iptables:
    ```
-iptables-save > /etc/iptables/rules.v4
+   iptables-save > /etc/iptables/rules.v4
    ```
 
 5. Reboot server
