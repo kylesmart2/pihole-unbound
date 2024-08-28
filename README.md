@@ -77,14 +77,11 @@ iptables-save > /etc/iptables/rules.v4
 7. Create docker-compose.yml file, or clone this repository:
    #if cloning
    ```
-mkdir pihole
+   mkdir pihole
+   cd pihole
+   git clone https://github.com/kylesmart2/pihole-unbound.git
    ```
-   ```
-cd pihole
-   ```
-   ```
-git clone https://github.com/kylesmart2/pihole-unbound.git
-   ```
+   
    #determine which compose file you are using, if you want to use cbcrowe_docker-compose.yml, rename docker-compose.yml to 
    #unused_docker-compose.yml and rename cbcrowe_docker-compose.yml to docker-compose.yml
 
