@@ -58,9 +58,10 @@ After that you can click local again and you will have the full portainer menu
 
 # To update pihole when it says at the bottom of the webpage that an update is available, just open Portainer  
   in a browser window and click Images.
-1. Click in image and type in ```
-pihole/pihole:latest
-```
+1. Click in image and type in
+   ```
+   pihole/pihole:latest
+   ```
 2. Pull the image.
 3. After the image has been pulled, click on Stacks.
 4. Click on your pihole stack.
