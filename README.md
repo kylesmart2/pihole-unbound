@@ -76,36 +76,46 @@ iptables-save > /etc/iptables/rules.v4
 
 7. Create docker-compose.yml file, or clone this repository:
    #if cloning
-   ```mkdir pihole
    ```
-   ```cd pihole
+mkdir pihole
    ```
-   ```git clone https://github.com/kylesmart2/pihole-unbound.git
+   ```
+cd pihole
+   ```
+   ```
+git clone https://github.com/kylesmart2/pihole-unbound.git
    ```
    #determine which compose file you are using, if you want to use cbcrowe_docker-compose.yml, rename docker-compose.yml to 
    #unused_docker-compose.yml and rename cbcrowe_docker-compose.yml to docker-compose.yml
 
    #if creating your own docker-compose file and pasting in the contents
-   ```mkdir pihole
    ```
-   ```cd pihole
+   mkdir pihole
    ```
-   ```nano docker-compose.yml
+   ```
+   cd pihole
+   ```
+   ```
+   nano docker-compose.yml
    ```
 
    Paste the contents of the attached docker-compose.yml file or just download the file and put it on your server. I'd recommend SFTP in terminal or filezilla if you're choosing to download the file and transfer 
    to your server, rather than downloading it to your server directly. 
 
 
-8. Run ```docker-compose up -d
+8. Run
+```
+docker-compose up -d
 ```
    After it is successful, goto server IP address, you should see pihole
 
    To change pihole password:
-   ```docker exec -it pihole /bin/bash
+   ```
+docker exec -it pihole /bin/bash
    ```
    After logged in pihole container:
-   ```pihole -a -p "enter your password without quotes"
+   ```
+pihole -a -p "enter your password without quotes"
    ```(hit enter)
 
 9. Add a Portainer container. It makes it super easy to update your containers if you setup the docker-compose.yml file as a stack using portainer. Must use version 2.1 (If you're on the current version, 3 works.)
@@ -124,8 +134,7 @@ iptables-save > /etc/iptables/rules.v4
 10. Periodically check your Pi-hole admin page at the bottom to check to see if there is an update available. When there is
     an update available, ssh into your server, or pull up the server's terminal and enter these commands:
 
-    ```
-    cd pihole
+    ```cd pihole
     ```                                                                                                                    
     ```docker compose pull
     ```
