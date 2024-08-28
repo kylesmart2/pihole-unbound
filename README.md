@@ -21,9 +21,9 @@ I have pulled the docker-compose.yml file stuff out of this tutorial and made it
 
 2. Edit ufw rules, install if not already and enable 
 
-  ```
-  ufw enable
-  ```
+   ```
+   ufw enable
+   ```
    
    Rules:
    root@localhost:~#
