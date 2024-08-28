@@ -101,19 +101,22 @@ iptables-save > /etc/iptables/rules.v4
 
 
 8. Run
-```
-docker-compose up -d
-```
+   ```
+   docker-compose up -d
+   ```
+
    After it is successful, goto server IP address, you should see pihole
 
    To change pihole password:
    ```
-docker exec -it pihole /bin/bash
+   docker exec -it pihole /bin/bash
    ```
+   
    After logged in pihole container:
    ```
-pihole -a -p "enter your password without quotes"
-   ```(hit enter)
+   pihole -a -p "enter your password without quotes"
+   ```
+   (hit enter)
 
 9. Add a Portainer container. It makes it super easy to update your containers if you setup the docker-compose.yml file as a stack using portainer. Must use version 2.1 (If you're on the current version, 3 works.)
 
@@ -131,13 +134,16 @@ pihole -a -p "enter your password without quotes"
 10. Periodically check your Pi-hole admin page at the bottom to check to see if there is an update available. When there is
     an update available, ssh into your server, or pull up the server's terminal and enter these commands:
 
-    ```cd pihole
+    ```
+    cd pihole
     ```                                                                                                                    
-    ```docker compose pull
+    ```
+    docker compose pull
     ```
 
     Once the download has finised, simply run:
-    ```docker compose up -d
+    ```
+    docker compose up -d
     ```
 
     If the output of that command shows Running 2/1 or Running 2/0, it didn't pull a new version of one or one may not have been available, or neither had an update.
