@@ -2,13 +2,13 @@
 
 Just follow these simple commands to install docker. (from dockers website: )
 
-curl -fsSL https://get.docker.com -o get-docker.sh 
-sudo sh get-docker.sh 
-sudo usermod -aG docker <your-user>     #make sure you remove <your-user> and put your username in place i.e. pi 
-sudo reboot
+```curl -fsSL https://get.docker.com -o get-docker.sh ```
+```sudo sh get-docker.sh ```
+```sudo usermod -aG docker <your-user>```     #make sure you remove <your-user> and put your username in place i.e. pi 
+```sudo reboot```
   
 # Install Portainer
-docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
+```docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest```
 
 Go to the ip address of your pi on a different machine (command: ip add) to find your ip address if unsure
 i.e. 192.168.1.4:9000
@@ -33,7 +33,7 @@ After that you can click local again and you will have the full portainer menu
 12. Find your pihole container and click the >_ symbol; this will take you to the console. 
 13. Click connect.
 14. Once connected, type this command followed by a space and then your password:
-    pihole -a -p <password>
+    ```pihole -a -p <password>```
 15. Open a new tab on your browser and enter your pi's ip address. (I.e. http://192.168.1.4/admin)
 16. Login with the password you just created.
 17. If you wish to get hostname's for your devices from your router, you need to go to the Settings
